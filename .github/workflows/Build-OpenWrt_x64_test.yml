@@ -16,7 +16,7 @@ on:
     branches:
       - main
     paths:
-      - 'build/r5s/start-up/start'
+      - 'build/x64_test/x64_test.config'
 
 env:
   Github: https://github.com/${{github.repository}}
@@ -177,8 +177,8 @@ jobs:
       if: steps.compile.outcome == 'success' && env.REGULAR_UPDATE == 'true' && env.REPO_TOKEN
       uses: ncipollo/release-action@main
       with:
-        name: AutoUpdate
-        tag: AutoUpdate
+        name: x64_test
+        tag: x64_test
         token: ${{ secrets.REPO_TOKEN }}
         allowUpdates: true
         bodyFile: "AutoUpdate_log.txt"
@@ -197,8 +197,8 @@ jobs:
       if: steps.regular.outcome == 'success' && env.REGULAR_UPDATE == 'true' && env.REPO_TOKEN
       uses: ncipollo/release-action@main
       with:
-        name: AutoUpdate
-        tag: AutoUpdate
+        name: x64_test
+        tag: x64_test
         token: ${{ secrets.REPO_TOKEN }}
         allowUpdates: true
         bodyFile: "AutoUpdate_log.txt"
