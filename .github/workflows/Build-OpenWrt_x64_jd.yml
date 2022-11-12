@@ -16,7 +16,7 @@ on:
     branches:
       - main
     paths:
-      - 'build/r5s/start-up/start'
+      - 'build/x64_jd/x64_jd.config'
 
 env:
   Github: https://github.com/${{github.repository}}
