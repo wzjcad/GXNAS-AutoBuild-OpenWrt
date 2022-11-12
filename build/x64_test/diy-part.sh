@@ -8,9 +8,9 @@
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='172.16.10.1'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.1.11'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-uci set network.lan.gateway='172.16.10.2'                     # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
+uci set network.lan.gateway='192.168.1.1'                     # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
 #uci set network.lan.broadcast='192.168.1.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
 uci set network.lan.dns='223.5.5.5 114.114.114.114'           # 旁路由设置 DNS(多个DNS要用空格分开)（去掉uci前面的#生效）
 uci set network.lan.delegate='0'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
