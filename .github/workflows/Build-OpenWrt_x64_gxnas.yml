@@ -180,8 +180,8 @@ jobs:
       if: steps.compile.outcome == 'success' && env.REGULAR_UPDATE == 'true' && env.REPO_TOKEN
       uses: ncipollo/release-action@main
       with:
-        name: x64_gxnas
-        tag: x64_gxnas
+        name: AutoUpdate
+        tag: AutoUpdate
         token: ${{ secrets.REPO_TOKEN }}
         allowUpdates: true
         bodyFile: "AutoUpdate_log.txt"
@@ -200,8 +200,8 @@ jobs:
       if: steps.regular.outcome == 'success' && env.REGULAR_UPDATE == 'true' && env.REPO_TOKEN
       uses: ncipollo/release-action@main
       with:
-        name: x64_gxnas
-        tag: x64_gxnas
+        name: AutoUpdate
+        tag: AutoUpdate
         token: ${{ secrets.REPO_TOKEN }}
         allowUpdates: true
         bodyFile: "AutoUpdate_log.txt"
