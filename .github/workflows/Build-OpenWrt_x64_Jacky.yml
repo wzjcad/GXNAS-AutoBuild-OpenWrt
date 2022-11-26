@@ -19,7 +19,7 @@ on:
     branches:
       - main
     paths:
-      - 'build/x64_all/x64_all.config'
+      - 'build/x64_all/x64_Jacky.config'
 
 env:
   Github: https://github.com/${{github.repository}}
@@ -46,7 +46,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [x64_all]
+        target: [x64_Jacky]
         
         # [Lede_source,Lienol_source,Mortal_source,Tianling_source,openwrt_amlogic]
 
