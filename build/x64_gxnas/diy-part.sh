@@ -5,6 +5,10 @@
 # 不要一下就拉取别人一个插件包N多插件的，多了没用，增加编译错误，自己需要的才好
 # 修改IP项的EOF于EOF之间请不要插入其他扩展代码，可以删除或注释里面原本的代码
 
+#添加ssrplus+插件包
+rm -rf package/helloworld
+git submodule add -f --name helloworld https://github.com/fw876/helloworld.git package/x64_gxnas-Software/ssrplus
+
 #添加adbyby-plus-lite插件包
 git clone https://github.com/kongfl888/luci-app-adbyby-plus-lite.git package/x64_gxnas-Software/adbyby-plus-lite
 
