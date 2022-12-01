@@ -12,6 +12,10 @@ git submodule add -f --name helloworld https://github.com/fw876/helloworld.git p
 #添加adbyby-plus-lite插件包
 git clone https://github.com/kongfl888/luci-app-adbyby-plus-lite.git package/x64_gxnas-Software/adbyby-plus-lite
 
+#添加bypass插件包
+git clone https://github.com/Cneupa/luci-app-bypass.git package/x64_gxnas-Software/bypass
+
+
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
