@@ -108,4 +108,6 @@ ipk.tar.gz
 openwrt-x86-64-generic-ext4-combined.img.gz
 openwrt-x86-64-generic-ext4-rootfs.img.gz
 openwrt-x86-64-generic-rootfs.tar.gz
+openwrt-x86-64-generic-squashfs-combined.vmdk
+openwrt-x86-64-generic-squashfs-combined-efi.vmdk
 EOF
