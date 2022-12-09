@@ -7,7 +7,7 @@
 
 #添加ssrplus+插件包
 rm -rf package/helloworld
-git submodule add -f --name helloworld https://github.com/fw876/helloworld.git package/x64_gxnas-Software/ssrplus
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
 
 #添加adbyby-plus-lite插件包
 git clone https://github.com/kongfl888/luci-app-adbyby-plus-lite.git package/x64_gxnas-Software/adbyby-plus-lite
