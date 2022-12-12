@@ -7,11 +7,13 @@
 
 #添加ssrplus+插件包
 rm -rf package/helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/x64_gxnas-Software/helloworld
 
 #添加bypass插件包
 git clone https://github.com/Cneupa/luci-app-bypass.git package/x64_gxnas-Software/bypass
 
+#添加lucky插件包
+git clone  https://github.com/gdy666/luci-app-lucky.git package/x64_gxnas-Software/lucky
 
 cat >$NETIP <<-EOF
 uci set network.lan.ipaddr='192.168.1.11'                      # IPv4 地址(openwrt后台地址)
