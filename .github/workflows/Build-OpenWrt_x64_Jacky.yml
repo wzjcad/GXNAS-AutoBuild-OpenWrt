@@ -19,7 +19,7 @@ on:
     branches:
       - main
     paths:
-      - 'build/x64_all/x64_Jacky.config'
+      - 'build/x64_Jacky/x64_Jacky.config'
 
 env:
   Github: https://github.com/${{github.repository}}
