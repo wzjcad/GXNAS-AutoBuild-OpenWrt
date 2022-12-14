@@ -15,8 +15,11 @@
 #添加lucky插件包
 git clone https://github.com/gdy666/luci-app-lucky.git package/lucky
 
+#添加autoupdate插件包
+git clone https://github.com/shidahuilang/luci-app-autoupdate.git package/luci-app-autoupdate
+
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.1.11'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
 uci set network.lan.gateway='192.168.1.1'                     # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
 #uci set network.lan.broadcast='192.168.1.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
