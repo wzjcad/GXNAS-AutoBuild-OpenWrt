@@ -14,26 +14,26 @@ git clone https://github.com/Cneupa/luci-app-bypass.git package/x64_gxnas-Softwa
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.1.11'                     # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.3.199'                     # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
-uci set network.lan.gateway='192.168.1.1'                     # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
-#uci set network.lan.broadcast='192.168.1.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
+uci set network.lan.gateway='192.168.3.1'                     # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
+#uci set network.lan.broadcast='192.168.3.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
 uci set network.lan.dns='223.5.5.5 114.114.114.114'           # 旁路由设置 DNS(多个DNS要用空格分开)（去掉uci前面的#生效）
 uci set network.lan.delegate='1'                              # 去掉LAN口使用内置的 IPv6 管理(若用IPV6请把'0'改'1')
 uci set dhcp.@dnsmasq[0].filter_aaaa='0'                      # 禁止解析 IPv6 DNS记录(若用IPV6请把'1'改'0')
 
 uci set dhcp.lan.ignore='1'                                   # 旁路由关闭DHCP功能（去掉uci前面的#生效）
 uci delete network.lan.type                                   # 旁路由去掉桥接模式（去掉uci前面的#生效）
-uci set system.@system[0].hostname='OpenWrt-GXNAS'            # 修改主机名称为OpenWrt
-#uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
+uci set system.@system[0].hostname='OpenWrt-wang'            # 修改主机名称为OpenWrt
+uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
 
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
-#uci set network.ipv6=interface
-#uci set network.ipv6.proto='dhcpv6'
-#uci set network.ipv6.ifname='@lan'
-#uci set network.ipv6.reqaddress='try'
-#uci set network.ipv6.reqprefix='auto'
-#uci set firewall.@zone[0].network='lan ipv6'
+uci set network.ipv6=interface
+uci set network.ipv6.proto='dhcpv6'
+uci set network.ipv6.ifname='@lan'
+uci set network.ipv6.reqaddress='try'
+uci set network.ipv6.reqprefix='auto'
+uci set firewall.@zone[0].network='lan ipv6'
 EOF
 
 
@@ -46,7 +46,7 @@ sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 
 # 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
-sed -i "s/OpenWrt /OpenWrt_x64_旁路由版 by GXNAS build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "${ZZZ_PATH}"
+sed -i "s/OpenWrt /OpenWrt_x64_旁路由版 by wang build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "${ZZZ_PATH}"
 
 
 # 设置首次登录后台密码为空（进入openwrt后自行修改密码）
@@ -57,11 +57,11 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' "${ZZZ_PATH}"
 # svn co https://github.com/shidahuilang/OpenClash package/luci-app-xiaolaoshu
 
 # 删除默认防火墙
-sed -i '/to-ports 53/d' "${ZZZ_PATH}"
+#sed -i '/to-ports 53/d' "${ZZZ_PATH}"
 
 
 # 取消路由器每天跑分任务
-# sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
+ sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
 
 
 # 修改默认内核（所有机型都适用，只要您编译的机型源码附带了其他内核，请至编译说明的第12条查看）
@@ -96,19 +96,6 @@ EOF
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间（根据编译机型变化,自行调整需要删除的固件名称）
 cat >"$CLEAR_PATH" <<-EOF
-packages
-config.buildinfo
-feeds.buildinfo
-openwrt-x86-64-generic-kernel.bin
-openwrt-x86-64-generic.manifest
-openwrt-x86-64-generic-squashfs-rootfs.img.gz
-sha256sums
-version.buildinfo
-ipk.tar.gz
-openwrt-x86-64-generic-ext4-combined.img.gz
-openwrt-x86-64-generic-ext4-combined-efi.img.gz
-openwrt-x86-64-generic-ext4-rootfs.img.gz
-openwrt-x86-64-generic-rootfs.tar.gz
-openwrt-x86-64-generic-squashfs-combined.vmdk
-openwrt-x86-64-generic-squashfs-combined-efi.vmdk
+
+
 EOF
